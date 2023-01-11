@@ -46,7 +46,7 @@ second_qeustion = "Где бы вы предпочли находиться? В 
 third_qeustion = "Полагаетесь ли вы на своих сокомандников или чаще надеетесь только на себя?"
 forth_question = "Много ли вы говорите во время игры или стараетесь оставаться немногословным?"
 fifth_question = "Какой стиль ведения игры вам ближе?"
-six_question = "Аим или скиллы?"
+six_question = "При возникновении опастной ситуации на что вы будете полагаться: стрельба(аим) или способнойсти персонажа(скиллы)?"
 
 
 first_answers = (make_pair('Да, я давно играю', 'Сложный'),
@@ -200,10 +200,8 @@ def get_analize(keywords):
     for agent, score in agents_score.items():
         if score == max_score:
             best_agents.append(agent)
-    idx = 0
-    if len(best_agents)>1:
-        idx = random.randint(0,len(best_agents)-1)
-    return best_agents[idx]
+    result = ', '.join(map(str, best_agents))
+    return result
 
 
 if __name__ == '__main__':
